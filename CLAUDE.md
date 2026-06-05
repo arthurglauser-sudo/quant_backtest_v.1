@@ -3,7 +3,7 @@
 ## 1. Project
 A quantitative **backtesting engine** for a multi-sleeve momentum + defensive trading strategy.
 - **Mode:** research / paper-trade only — this code never places live orders.
-- **Base currency:** CHF. **Venue:** Swissquote. **Benchmark:** S&P 500 total return.
+- **Base currency:** CHF. **Venue:** PRIVATE. **Benchmark:** S&P 500 total return.
 - **Goal:** measure the strategy's *real, overfitting-resistant* performance via leak-free backtesting and walk-forward out-of-sample validation.
 
 ## 2. Strategy summary
