@@ -5,6 +5,15 @@ description: |
   with an annotated 1998-proxy / real-ETF splice. This module becomes the
   reference pattern for the rest of the package.
 
+## Reviewer amendments (apply these — they override conflicting lines below)
+1. Benchmark = TOTAL RETURN. Use SPY adjusted close (dividends reinvested) as the
+   S&P 500 total-return proxy. Keep ^GSPC ONLY as the master trading-calendar source.
+   In config/parameters.py: CALENDAR_TICKER="^GSPC", BENCHMARK_TICKER="SPY".
+   Store the benchmark series as "SPX_TR" from SPY's adjusted close.
+2. Data fetching: do NOT use pandas-datareader (incompatible with pinned pandas 3.0).
+   Make direct HTTP the PRIMARY path — FRED via
+   https://fred.stlouisfed.org/graph/fredgraph.csv?id=<SERIES_ID>, and Ken French via
+   the data-library CSV ZIP. Remove the `uv add pandas-datareader` task.
 ## Purpose
 Implement Phase 2 of the quant-backtest engine: the **data layer**. Produce a
 reproducible local dataset (Parquet) of cleaned, calendar-aligned, CHF daily
